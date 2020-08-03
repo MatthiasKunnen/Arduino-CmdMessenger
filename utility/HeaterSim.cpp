@@ -52,39 +52,39 @@ void HeaterSim::SetAmbientTemp(float ambientTemp) {
 }
  
 void HeaterSim::SetBoilerTemp(float boilerTemp) {
-	_boilerTemp        = boilerTemp;
-	_delayedBoilerTemp = boilerTemp;
+    _boilerTemp        = boilerTemp;
+    _delayedBoilerTemp = boilerTemp;
 }
 
 void HeaterSim::SetHeaterState(bool boilerOn) {
-	CalcTemperature();
-	_boilerOn = boilerOn;
+    CalcTemperature();
+    _boilerOn = boilerOn;
 }
 
 float HeaterSim::GetTemp() {
-	CalcTemperature();
-	return _delayedBoilerTemp;
+    CalcTemperature();
+    return _delayedBoilerTemp;
 }
 
 void HeaterSim::CalcTemperature()
 {
-	float rate                  = LN2/_halfTimeCooling;	 
-	unsigned long currentTime   = millis();
-	if (currentTime >= _lastTime) _deltams = max(currentTime - _lastTime,1);
-	_deltaTime                  = _deltams/ 1000.0f;
-	float deltaTemp             = _boilerTemp - _ambientTemp;
-	float deltaTempAfterCooling = deltaTemp*exp(-rate*_deltaTime);
-	float inflowTemp            = _deltaTime * (_boilerOn?_heaterSpeed:0.0f);	 
-	float currentTemp           = _ambientTemp + deltaTempAfterCooling + inflowTemp;
-	currentTemp                 = min(max(currentTemp,0.0f),100.0f);
+    float rate                  = LN2/_halfTimeCooling;
+    unsigned long currentTime   = millis();
+    if (currentTime >= _lastTime) _deltams = max(currentTime - _lastTime,1);
+    _deltaTime                  = _deltams/ 1000.0f;
+    float deltaTemp             = _boilerTemp - _ambientTemp;
+    float deltaTempAfterCooling = deltaTemp*exp(-rate*_deltaTime);
+    float inflowTemp            = _deltaTime * (_boilerOn?_heaterSpeed:0.0f);
+    float currentTemp           = _ambientTemp + deltaTempAfterCooling + inflowTemp;
+    currentTemp                 = min(max(currentTemp,0.0f),100.0f);
 
-	_lastTime                   = currentTime;
-	_boilerTemp                 = currentTemp;
-	CalcDelayedTemperature();	  
+    _lastTime                   = currentTime;
+    _boilerTemp                 = currentTemp;
+    CalcDelayedTemperature();
 }
 
 void HeaterSim::CalcDelayedTemperature()
 {
-	float fract = min(max(_deltaTime/_responseTime,0.0f),1.0f);
-	_delayedBoilerTemp = fract* _boilerTemp + (1.0f - fract)* _delayedBoilerTemp;
+    float fract = min(max(_deltaTime/_responseTime,0.0f),1.0f);
+    _delayedBoilerTemp = fract* _boilerTemp + (1.0f - fract)* _delayedBoilerTemp;
 }

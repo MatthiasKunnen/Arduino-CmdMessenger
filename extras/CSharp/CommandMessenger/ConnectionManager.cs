@@ -205,7 +205,7 @@ namespace CommandMessenger
             }
             else
             {   
-				//Invoke here             
+                //Invoke here
                 try { eventHandler.BeginInvoke(this, eventHandlerArguments, null, null); } catch { }
                 
             }

@@ -33,7 +33,7 @@ namespace CommandMessenger
         // Note create new instance for every independent string
 
         /// <summary>Returns if the character is escaped.
-        /// 		 Note create new instance for every independent string </summary>
+        ///          Note create new instance for every independent string </summary>
         /// <param name="currChar"> The currebt character. </param>
         /// <returns> true if the character is escaped, false if not. </returns>
         public bool EscapedChar(char currChar)
@@ -55,9 +55,9 @@ namespace CommandMessenger
     {
         // Remove all occurrences of removeChar unless it is escaped by escapeChar
 
-        private static char _fieldSeparator   = ',';	// The field separator
-        private static char _commandSeparator = ';';	// The command separator
-        private static char _escapeCharacter  = '/';	// The escape character
+        private static char _fieldSeparator   = ',';    // The field separator
+        private static char _commandSeparator = ';';    // The command separator
+        private static char _escapeCharacter  = '/';    // The escape character
 
         /// <summary> Gets the escape character. </summary>
         /// <value> The escape character. </value>

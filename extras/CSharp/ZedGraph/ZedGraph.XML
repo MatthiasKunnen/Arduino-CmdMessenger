@@ -1641,9 +1641,9 @@
                private string MyCursorValueHandler( object sender, GraphPane pane, Point mousePt )
                {
                #region
-            	double x, y;
-            	pane.ReverseTransform( mousePt, out x, out y );
-            	return "( " + x.ToString( "f2" ) + ", " + y.ToString( "f2" ) + " )";
+                double x, y;
+                pane.ReverseTransform( mousePt, out x, out y );
+                return "( " + x.ToString( "f2" ) + ", " + y.ToString( "f2" ) + " )";
                #endregion
                }</code>
             </example>
@@ -8438,7 +8438,7 @@
             The scaling factor for the features of the graph based on the <see cref="P:ZedGraph.PaneBase.BaseDimension"/>.  This
             scaling factor is calculated by the <see cref="M:ZedGraph.PaneBase.CalcScaleFactor"/> method.  The scale factor
             represents a linear multiple to be applied to font sizes, symbol sizes, etc.
-            </param>		
+            </param>
         </member>
         <member name="M:ZedGraph.PaneBase.DrawTitle(System.Drawing.Graphics,System.Single)">
             <summary>
@@ -8452,7 +8452,7 @@
             The scaling factor for the features of the graph based on the <see cref="P:ZedGraph.PaneBase.BaseDimension"/>.  This
             scaling factor is calculated by the <see cref="M:ZedGraph.PaneBase.CalcScaleFactor"/> method.  The scale factor
             represents a linear multiple to be applied to font sizes, symbol sizes, etc.
-            </param>		
+            </param>
         </member>
         <member name="M:ZedGraph.PaneBase.ReSize(System.Drawing.Graphics,System.Drawing.RectangleF)">
             <summary>
@@ -9273,7 +9273,7 @@
         </member>
         <member name="P:ZedGraph.MasterPane.IsUniformLegendEntries">
             <summary>
-            Gets or set the value of the	 <see cref="P:ZedGraph.MasterPane.IsUniformLegendEntries"/>
+            Gets or set the value of the     <see cref="P:ZedGraph.MasterPane.IsUniformLegendEntries"/>
             </summary>
         </member>
         <member name="P:ZedGraph.MasterPane.IsCommonScaleFactor">
@@ -9405,8 +9405,8 @@
         </member>
         <member name="F:ZedGraph.GasGaugeRegion._fill">
             <summary>
-            Private	field	that stores the	<see cref="T:ZedGraph.Fill"/> data for this
-            <see cref="T:ZedGraph.GasGaugeRegion"/>.	 Use the public property <see cref="P:ZedGraph.GasGaugeRegion.Fill"/> to
+            Private    field    that stores the    <see cref="T:ZedGraph.Fill"/> data for this
+            <see cref="T:ZedGraph.GasGaugeRegion"/>.     Use the public property <see cref="P:ZedGraph.GasGaugeRegion.Fill"/> to
             access this value.
             </summary>
         </member>
@@ -9418,9 +9418,9 @@
         </member>
         <member name="F:ZedGraph.GasGaugeRegion._border">
             <summary>
-            Private	field	that stores the	<see cref="P:ZedGraph.GasGaugeRegion.Border"/> class that defines	the
-            properties of the	border around	this <see cref="T:ZedGraph.GasGaugeRegion"/>. Use the public
-            property	<see cref="P:ZedGraph.GasGaugeRegion.Border"/> to access this value.
+            Private    field    that stores the    <see cref="P:ZedGraph.GasGaugeRegion.Border"/> class that defines    the
+            properties of the    border around    this <see cref="T:ZedGraph.GasGaugeRegion"/>. Use the public
+            property    <see cref="P:ZedGraph.GasGaugeRegion.Border"/> to access this value.
             </summary>
         </member>
         <member name="F:ZedGraph.GasGaugeRegion._boundingRectangle">
@@ -9515,7 +9515,7 @@
             passed down by the parent <see cref="T:ZedGraph.GraphPane"/> object using the
             <see cref="M:ZedGraph.PaneBase.CalcScaleFactor"/> method, and is used to proportionally adjust
             font sizes, etc. according to the actual size of the graph.
-            </param>	
+            </param>
         </member>
         <member name="M:ZedGraph.GasGaugeRegion.DrawLegendKey(System.Drawing.Graphics,ZedGraph.GraphPane,System.Drawing.RectangleF,System.Single)">
             <summary>
@@ -9535,7 +9535,7 @@
             passed down by the parent <see cref="T:ZedGraph.GraphPane"/> object using the
             <see cref="M:ZedGraph.PaneBase.CalcScaleFactor"/> method, and is used to proportionally adjust
             font sizes, etc. according to the actual size of the graph.
-            </param>		
+            </param>
         </member>
         <member name="M:ZedGraph.GasGaugeRegion.GetCoords(ZedGraph.GraphPane,System.Int32,System.String@)">
             <summary>
@@ -9577,7 +9577,7 @@
             passed down by the parent <see cref="T:ZedGraph.GraphPane"/> object using the
             <see cref="M:ZedGraph.PaneBase.CalcScaleFactor"/> method, and is used to proportionally adjust
             font sizes, etc. according to the actual size of the graph.
-            </param>				
+            </param>
             <param name="chartRect">The <see cref="T:System.Drawing.RectangleF"/> (normally the <see cref="P:ZedGraph.Chart.Rect"/>)
             that bounds this pie.</param>
             <returns></returns>
@@ -10680,7 +10680,7 @@
         </member>
         <member name="F:ZedGraph.PieItem._displacement">
             <summary>
-            Percentage (expressed as #.##) of <see cref="T:ZedGraph.PieItem"/>	radius  to
+            Percentage (expressed as #.##) of <see cref="T:ZedGraph.PieItem"/>    radius  to
             which this <see cref="T:ZedGraph.PieItem"/> is to be displaced from the center.
               Displacement is done outward  along the radius
             bisecting the chord of this <see cref="T:ZedGraph.PieItem"/>.  Maximum allowable value
@@ -10695,16 +10695,16 @@
         </member>
         <member name="F:ZedGraph.PieItem._fill">
             <summary>
-            Private	field	that stores the	<see cref="T:ZedGraph.Fill"/> data for this
-            <see cref="T:ZedGraph.PieItem"/>.	 Use the public property <see cref="P:ZedGraph.PieItem.Fill"/> to
+            Private    field    that stores the    <see cref="T:ZedGraph.Fill"/> data for this
+            <see cref="T:ZedGraph.PieItem"/>.     Use the public property <see cref="P:ZedGraph.PieItem.Fill"/> to
             access this value.
             </summary>
         </member>
         <member name="F:ZedGraph.PieItem._border">
             <summary>
-            Private	field	that stores the	<see cref="P:ZedGraph.PieItem.Border"/> class that defines	the
-            properties of the	border around	this <see cref="T:ZedGraph.PieItem"/>. Use the public
-            property	<see cref="P:ZedGraph.PieItem.Border"/> to access this value.
+            Private    field    that stores the    <see cref="P:ZedGraph.PieItem.Border"/> class that defines    the
+            properties of the    border around    this <see cref="T:ZedGraph.PieItem"/>. Use the public
+            property    <see cref="P:ZedGraph.PieItem.Border"/> to access this value.
             </summary>
         </member>
         <member name="F:ZedGraph.PieItem._pieValue">
@@ -10745,7 +10745,7 @@
         </member>
         <member name="F:ZedGraph.PieItem._endPoint">
             <summary>
-            The point at the end of the line between	this <see cref="T:ZedGraph.PieItem"/> and 
+            The point at the end of the line between    this <see cref="T:ZedGraph.PieItem"/> and
             it's label (i.e. the beginning of the label display)
             </summary>
         </member>
@@ -10888,7 +10888,7 @@
             passed down by the parent <see cref="T:ZedGraph.GraphPane"/> object using the
             <see cref="M:ZedGraph.PaneBase.CalcScaleFactor"/> method, and is used to proportionally adjust
             font sizes, etc. according to the actual size of the graph.
-            </param>				
+            </param>
         </member>
         <member name="M:ZedGraph.PieItem.CalcPieRect(System.Drawing.Graphics,ZedGraph.GraphPane,System.Single,System.Drawing.RectangleF)">
             <summary>
@@ -10910,7 +10910,7 @@
             passed down by the parent <see cref="T:ZedGraph.GraphPane"/> object using the
             <see cref="M:ZedGraph.PaneBase.CalcScaleFactor"/> method, and is used to proportionally adjust
             font sizes, etc. according to the actual size of the graph.
-            </param>				
+            </param>
             <param name="chartRect">The <see cref="T:System.Drawing.RectangleF"/> (normally the <see cref="P:ZedGraph.Chart.Rect"/>)
             that bounds this pie.</param>
             <returns></returns>
@@ -10949,7 +10949,7 @@
             passed down by the parent <see cref="T:ZedGraph.GraphPane"/> object using the
             <see cref="M:ZedGraph.PaneBase.CalcScaleFactor"/> method, and is used to proportionally adjust
             font sizes, etc. according to the actual size of the graph.
-            </param>				
+            </param>
         </member>
         <member name="M:ZedGraph.PieItem.DesignLabel(System.Drawing.Graphics,ZedGraph.GraphPane,System.Drawing.RectangleF,System.Single)">
             <summary>
@@ -11109,7 +11109,7 @@
         </member>
         <member name="F:ZedGraph.PieItem.Default.BorderWidth">
             <summary>
-            The default pen width	to be used for drawing the	border around	the PieItem
+            The default pen width    to be used for drawing the    border around    the PieItem
             (<see cref="P:ZedGraph.LineBase.Width"/> property). Units are points.
             </summary>
         </member>
@@ -11121,19 +11121,19 @@
         <member name="F:ZedGraph.PieItem.Default.IsBorderVisible">
             <summary>
             The default border mode for PieItem (<see cref="P:ZedGraph.LineBase.IsVisible"/> property).
-            true to	display frame around PieItem, false otherwise
+            true to    display frame around PieItem, false otherwise
             </summary>
         </member>
         <member name="F:ZedGraph.PieItem.Default.BorderColor">
             <summary>
-            The default color for drawing	frames around	PieItem
+            The default color for drawing    frames around    PieItem
             (<see cref="P:ZedGraph.LineBase.Color"/> property).
             </summary>
         </member>
         <member name="F:ZedGraph.PieItem.Default.FillColor">
             <summary>
-            The default color for filling in	the PieItem
-            (<see cref="P:ZedGraph.Fill.Color"/>	property).
+            The default color for filling in    the PieItem
+            (<see cref="P:ZedGraph.Fill.Color"/>    property).
             </summary>
         </member>
         <member name="F:ZedGraph.PieItem.Default.FillBrush">

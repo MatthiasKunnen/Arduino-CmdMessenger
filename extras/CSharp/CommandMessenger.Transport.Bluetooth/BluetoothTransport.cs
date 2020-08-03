@@ -44,7 +44,7 @@ namespace CommandMessenger.Transport.Bluetooth
         private readonly object _writeLock = new object();
         private readonly byte[] _readBuffer = new byte[BufferSize];
         private int _bufferFilled;
-		private static BluetoothDeviceInfo _runningBluetoothDeviceInfo;
+        private static BluetoothDeviceInfo _runningBluetoothDeviceInfo;
         private static bool _showAsConnected;
         private static bool _lazyReconnect;
 

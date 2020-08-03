@@ -21,19 +21,19 @@
 Imports Microsoft.VisualBasic
 Imports System
 Namespace CommandMessenger
-	''' <summary>  Top strategy. The command is added to the front of the queue</summary>
-	Public Class TopCommandStrategy
-		Inherits CommandStrategy
-		''' <summary>  Top strategy. The command is added to the front of the queue</summary>
-		''' <param name="command"> The command to add to the front of the queue. </param>
-		Public Sub New(ByVal command As Command)
-			MyBase.New(command)
-		End Sub
+    ''' <summary>  Top strategy. The command is added to the front of the queue</summary>
+    Public Class TopCommandStrategy
+        Inherits CommandStrategy
+        ''' <summary>  Top strategy. The command is added to the front of the queue</summary>
+        ''' <param name="command"> The command to add to the front of the queue. </param>
+        Public Sub New(ByVal command As Command)
+            MyBase.New(command)
+        End Sub
 
-		''' <summary> Add command (strategy) to command queue. </summary>
-		Public Overrides Sub Enqueue()
-			'Console.WriteLine("Enqueue {0}", CommandQueue.Count);
-			CommandQueue.EnqueueFront(Me)
-		End Sub
-	End Class
+        ''' <summary> Add command (strategy) to command queue. </summary>
+        Public Overrides Sub Enqueue()
+            'Console.WriteLine("Enqueue {0}", CommandQueue.Count);
+            CommandQueue.EnqueueFront(Me)
+        End Sub
+    End Class
 End Namespace

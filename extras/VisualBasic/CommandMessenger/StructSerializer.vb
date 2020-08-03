@@ -22,30 +22,30 @@ Imports Microsoft.VisualBasic
 Imports System.Runtime.InteropServices
 
 Namespace CommandMessenger
-	''' <summary> Helper object to convert structures to byte arrays and vice versa.  </summary>
-	Friend Class StructSerializer
-		''' <summary> Convert an object to a byte array. </summary>
-		''' <param name="obj"> The object. </param>
-		''' <returns> The byte array. </returns>
-		Public Shared Function ObjectToByteArray(ByVal obj As Object) As Byte()
-			Dim length = Marshal.SizeOf(obj)
-			Dim byteArray = New Byte(length - 1){}
-			Dim arrayPointer = Marshal.AllocHGlobal(length)
-			Marshal.StructureToPtr(obj, arrayPointer, True)
-			Marshal.Copy(arrayPointer, byteArray, 0, length)
-			Marshal.FreeHGlobal(arrayPointer)
-			Return byteArray
-		End Function
+    ''' <summary> Helper object to convert structures to byte arrays and vice versa.  </summary>
+    Friend Class StructSerializer
+        ''' <summary> Convert an object to a byte array. </summary>
+        ''' <param name="obj"> The object. </param>
+        ''' <returns> The byte array. </returns>
+        Public Shared Function ObjectToByteArray(ByVal obj As Object) As Byte()
+            Dim length = Marshal.SizeOf(obj)
+            Dim byteArray = New Byte(length - 1){}
+            Dim arrayPointer = Marshal.AllocHGlobal(length)
+            Marshal.StructureToPtr(obj, arrayPointer, True)
+            Marshal.Copy(arrayPointer, byteArray, 0, length)
+            Marshal.FreeHGlobal(arrayPointer)
+            Return byteArray
+        End Function
 
-		''' <summary> Convert an byte array to an object. </summary>
-		''' <param name="bytearray"> The bytearray. </param>
-		''' <param name="obj">       [in,out] The object. </param>
-		Public Shared Sub ByteArrayToObject(ByVal bytearray() As Byte, ByRef obj As Object)
-			Dim length = Marshal.SizeOf(obj)
-			Dim arrayPointer = Marshal.AllocHGlobal(length)
-			Marshal.Copy(bytearray, 0, arrayPointer, length)
-			obj = Marshal.PtrToStructure(arrayPointer, obj.GetType())
-			Marshal.FreeHGlobal(arrayPointer)
-		End Sub
-	End Class
+        ''' <summary> Convert an byte array to an object. </summary>
+        ''' <param name="bytearray"> The bytearray. </param>
+        ''' <param name="obj">       [in,out] The object. </param>
+        Public Shared Sub ByteArrayToObject(ByVal bytearray() As Byte, ByRef obj As Object)
+            Dim length = Marshal.SizeOf(obj)
+            Dim arrayPointer = Marshal.AllocHGlobal(length)
+            Marshal.Copy(bytearray, 0, arrayPointer, length)
+            obj = Marshal.PtrToStructure(arrayPointer, obj.GetType())
+            Marshal.FreeHGlobal(arrayPointer)
+        End Sub
+    End Class
 End Namespace

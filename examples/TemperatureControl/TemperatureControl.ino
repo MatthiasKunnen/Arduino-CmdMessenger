@@ -59,7 +59,7 @@ int thermoCLK                      = 5;
 const int switchPin                = 4;
 
 bool acquireData                   = false; // Logging start/stop flag
-bool controlHeater 	               = false; // Heater start/stop flag
+bool controlHeater                    = false; // Heater start/stop flag
 
 long startAcqMillis                = 0;
 
@@ -167,17 +167,17 @@ void OnSetGoalTemperature()
 // Callback function that sets the start time
 void OnSetStartTime()
 {
-	// Read led state argument, interpret string as float
-	float startTime = cmdMessenger.readBinArg<float>();
-	
-	// Make sure that the argument is valid before we change
-	if (cmdMessenger.isArgOk()) {
-		unsigned long milis =  millis();
-		// translate time in seconds to time in milliseconds wrt to internal clock;
-		startAcqMillis = (unsigned long)((float)startTime*1000.0f);
-		if (startAcqMillis >  milis) { startAcqMillis = milis; }
-		startAcqMillis = milis- startAcqMillis;
-	}
+    // Read led state argument, interpret string as float
+    float startTime = cmdMessenger.readBinArg<float>();
+
+    // Make sure that the argument is valid before we change
+    if (cmdMessenger.isArgOk()) {
+        unsigned long milis =  millis();
+        // translate time in seconds to time in milliseconds wrt to internal clock;
+        startAcqMillis = (unsigned long)((float)startTime*1000.0f);
+        if (startAcqMillis >  milis) { startAcqMillis = milis; }
+        startAcqMillis = milis- startAcqMillis;
+    }
 }
 
 // ------------------ M A I N  ----------------------
@@ -193,7 +193,7 @@ void setup()
   // Many bluetooth breakout boards run on 9600 at default speed
   // The Serial setting below should match this
   //Serial.begin(9600);    
-	
+
   // Do not print newLine at end of command, 
   // in order to reduce data being sent
   cmdMessenger.printLfCr(false);
@@ -207,9 +207,9 @@ void setup()
 
   // Read the current temperature
   #ifdef REAL_HEATER
-	CurrentTemperature= thermocouple.readCelsius();
+    CurrentTemperature= thermocouple.readCelsius();
   #else
-	CurrentTemperature = heaterSim.GetTemp();
+    CurrentTemperature = heaterSim.GetTemp();
   #endif
 
   //prepare PID port for writing
@@ -258,9 +258,9 @@ void measure() {
      
      // Measure temperature 
      #ifdef REAL_HEATER
-		CurrentTemperature= thermocouple.readCelsius(); // measure with thermocouple
+        CurrentTemperature= thermocouple.readCelsius(); // measure with thermocouple
      #else 
-		CurrentTemperature = heaterSim.GetTemp();       // measure temperature in simulated boiler
+        CurrentTemperature = heaterSim.GetTemp();       // measure temperature in simulated boiler
      #endif   
          
      // Send data to PC    
@@ -276,8 +276,8 @@ void measure() {
 
 void SetHeaterState(bool heaterOn)
 {
-	// Turn heater, connected to relay at pin switchPin
-	digitalWrite(switchPin,heaterOn?HIGH:LOW);
+    // Turn heater, connected to relay at pin switchPin
+    digitalWrite(switchPin,heaterOn?HIGH:LOW);
 }
 
 // Set binary heater state
@@ -286,9 +286,9 @@ void heaterPWM()
   // Switch heater on or off, based on moment in the PWM cycle
   heaterOn = pidTimer.before(heaterSteerValue);
   #ifdef REAL_HEATER
-	SetHeaterState(heaterOn);			  // Turn on heater of boiler 
+    SetHeaterState(heaterOn);              // Turn on heater of boiler
   #else
-	heaterSim.SetHeaterState(heaterOn); // Turn on heater of simulated boiler
+    heaterSim.SetHeaterState(heaterOn); // Turn on heater of simulated boiler
   #endif 
   
 

@@ -263,10 +263,10 @@ namespace CommandMessenger
         }
 
         /// <summary> Sends a command. 
-        /// 		  If no command acknowledge is requested, the command will be send asynchronously: it will be put on the top of the send queue
-        ///  		  If a  command acknowledge is requested, the command will be send synchronously:  the program will block until the acknowledge command 
-        ///  		  has been received or the timeout has expired.
-        ///  		  Based on ClearQueueState, the send- and receive-queues are left intact or are cleared</summary>
+        ///           If no command acknowledge is requested, the command will be send asynchronously: it will be put on the top of the send queue
+        ///            If a  command acknowledge is requested, the command will be send synchronously:  the program will block until the acknowledge command
+        ///            has been received or the timeout has expired.
+        ///            Based on ClearQueueState, the send- and receive-queues are left intact or are cleared</summary>
         /// <param name="sendCommand">       The command to sent. </param>
         /// <param name="sendQueueState">    Property to optionally clear/wait the send queue</param>
         /// <param name="receiveQueueState"> Property to optionally clear/wait the send queue</param>
@@ -277,10 +277,10 @@ namespace CommandMessenger
         }
 
         /// <summary> Sends a command. 
-        /// 		  If no command acknowledge is requested, the command will be send asynchronously: it will be put on the top of the send queue
-        ///  		  If a  command acknowledge is requested, the command will be send synchronously:  the program will block until the acknowledge command 
-        ///  		  has been received or the timeout has expired.
-        ///  		  Based on ClearQueueState, the send- and receive-queues are left intact or are cleared</summary>
+        ///           If no command acknowledge is requested, the command will be send asynchronously: it will be put on the top of the send queue
+        ///            If a  command acknowledge is requested, the command will be send synchronously:  the program will block until the acknowledge command
+        ///            has been received or the timeout has expired.
+        ///            Based on ClearQueueState, the send- and receive-queues are left intact or are cleared</summary>
         /// <param name="sendCommand">       The command to sent. </param>
         /// <param name="sendQueueState">    Property to optionally clear/wait the send queue</param>
         /// <param name="receiveQueueState"> Property to optionally clear/wait the send queue</param>

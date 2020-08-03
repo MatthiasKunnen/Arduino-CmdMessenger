@@ -23,50 +23,50 @@ Imports System.IO
 Imports System.Runtime.Serialization.Formatters.Binary
 
 Namespace CommandMessenger.Serialport
-	Public Class SerialConnectionStorer
-		Implements ISerialConnectionStorer
-		Private ReadOnly _settingsFileName As String
-		''' <summary>
-		''' Contructor of Store/Retreive object for SerialConnectionManagerSettings
-		''' The file is serialized as a simple binary file
-		''' </summary>
-		Public Sub New()
-			_settingsFileName = "SerialConnectionManagerSettings.cfg"
-		End Sub
+    Public Class SerialConnectionStorer
+        Implements ISerialConnectionStorer
+        Private ReadOnly _settingsFileName As String
+        ''' <summary>
+        ''' Contructor of Store/Retreive object for SerialConnectionManagerSettings
+        ''' The file is serialized as a simple binary file
+        ''' </summary>
+        Public Sub New()
+            _settingsFileName = "SerialConnectionManagerSettings.cfg"
+        End Sub
 
-		''' <summary>
-		''' Contructor of Store/Retreive object for SerialConnectionManagerSettings
-		''' The file is serialized as a simple binary file
-		''' </summary>
-		''' <param name="settingsFileName">Filename of the settings file</param>
-		Public Sub New(ByVal settingsFileName As String)
-			_settingsFileName = settingsFileName
-		End Sub
+        ''' <summary>
+        ''' Contructor of Store/Retreive object for SerialConnectionManagerSettings
+        ''' The file is serialized as a simple binary file
+        ''' </summary>
+        ''' <param name="settingsFileName">Filename of the settings file</param>
+        Public Sub New(ByVal settingsFileName As String)
+            _settingsFileName = settingsFileName
+        End Sub
 
-		''' <summary>
-		''' Store SerialConnectionManagerSettings
-		''' </summary>
-		''' <param name="serialConnectionManagerSettings">SerialConnectionManagerSettings</param>
-		Public Sub StoreSettings(ByVal serialConnectionManagerSettings As SerialConnectionManagerSettings) Implements ISerialConnectionStorer.StoreSettings
-			Dim fileStream = File.Create(_settingsFileName)
-			Dim serializer = New BinaryFormatter()
-			serializer.Serialize(fileStream, serialConnectionManagerSettings)
-			fileStream.Close()
-		End Sub
+        ''' <summary>
+        ''' Store SerialConnectionManagerSettings
+        ''' </summary>
+        ''' <param name="serialConnectionManagerSettings">SerialConnectionManagerSettings</param>
+        Public Sub StoreSettings(ByVal serialConnectionManagerSettings As SerialConnectionManagerSettings) Implements ISerialConnectionStorer.StoreSettings
+            Dim fileStream = File.Create(_settingsFileName)
+            Dim serializer = New BinaryFormatter()
+            serializer.Serialize(fileStream, serialConnectionManagerSettings)
+            fileStream.Close()
+        End Sub
 
-		''' <summary>
-		''' Retreive SerialConnectionManagerSettings
-		''' </summary>
-		''' <returns>SerialConnectionManagerSettings</returns>
-		Public Function RetrieveSettings() As SerialConnectionManagerSettings Implements ISerialConnectionStorer.RetrieveSettings
-			Dim serialConnectionManagerSettings = New SerialConnectionManagerSettings()
-			If File.Exists(_settingsFileName) Then
-				Dim fileStream = File.OpenRead(_settingsFileName)
-				Dim deserializer = New BinaryFormatter()
-				serialConnectionManagerSettings = CType(deserializer.Deserialize(fileStream), SerialConnectionManagerSettings)
-				fileStream.Close()
-			End If
-			Return serialConnectionManagerSettings
-		End Function
-	End Class
+        ''' <summary>
+        ''' Retreive SerialConnectionManagerSettings
+        ''' </summary>
+        ''' <returns>SerialConnectionManagerSettings</returns>
+        Public Function RetrieveSettings() As SerialConnectionManagerSettings Implements ISerialConnectionStorer.RetrieveSettings
+            Dim serialConnectionManagerSettings = New SerialConnectionManagerSettings()
+            If File.Exists(_settingsFileName) Then
+                Dim fileStream = File.OpenRead(_settingsFileName)
+                Dim deserializer = New BinaryFormatter()
+                serialConnectionManagerSettings = CType(deserializer.Deserialize(fileStream), SerialConnectionManagerSettings)
+                fileStream.Close()
+            End If
+            Return serialConnectionManagerSettings
+        End Function
+    End Class
 End Namespace

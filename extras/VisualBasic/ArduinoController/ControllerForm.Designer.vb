@@ -35,7 +35,7 @@ Partial Public Class ControllerForm
         Me.EnableLedCheckBox.TabIndex = 0
         Me.EnableLedCheckBox.Text = "Enable Led"
         Me.EnableLedCheckBox.UseVisualStyleBackColor = True
-        '			Me.EnableLedCheckBox.CheckedChanged += New System.EventHandler(Me.EnableLedCheckBoxCheckedChanged);
+        '            Me.EnableLedCheckBox.CheckedChanged += New System.EventHandler(Me.EnableLedCheckBoxCheckedChanged);
         ' 
         ' LedFrequencyLabelTrackBar
         ' 
@@ -46,8 +46,8 @@ Partial Public Class ControllerForm
         Me.LedFrequencyLabelTrackBar.TabIndex = 1
         Me.LedFrequencyLabelTrackBar.Tag = ""
         Me.LedFrequencyLabelTrackBar.TickFrequency = 10
-        '			Me.LedFrequencyLabelTrackBar.Scroll += New System.EventHandler(Me.LedFrequencyTrackBarScroll);
-        '			Me.LedFrequencyLabelTrackBar.ValueChanged += New System.EventHandler(Me.LedFrequencyLabelTrackBarValueChanged);
+        '            Me.LedFrequencyLabelTrackBar.Scroll += New System.EventHandler(Me.LedFrequencyTrackBarScroll);
+        '            Me.LedFrequencyLabelTrackBar.ValueChanged += New System.EventHandler(Me.LedFrequencyLabelTrackBarValueChanged);
         ' 
         ' LedFrequencyLabel
         ' 

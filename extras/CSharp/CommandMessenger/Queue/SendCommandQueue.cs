@@ -52,8 +52,8 @@ namespace CommandMessenger.Queue
         }
 
         /// <summary> Sends the commands from queue. All commands will be combined until either
-        /// 		   the SendBufferMaxLength  has been reached or if a command requires an acknowledge
-        /// 		   </summary>
+        ///            the SendBufferMaxLength  has been reached or if a command requires an acknowledge
+        ///            </summary>
         private void SendCommandsFromQueue()
         {
             _commandCount = 0;

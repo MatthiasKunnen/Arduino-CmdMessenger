@@ -21,23 +21,23 @@ Imports Microsoft.VisualBasic
 Imports System
 
 Namespace CommandMessenger
-	Public Class NewLineEvent
-		Public Delegate Sub NewLineHandler(ByVal sender As Object, ByVal e As NewLineArgs)
+    Public Class NewLineEvent
+        Public Delegate Sub NewLineHandler(ByVal sender As Object, ByVal e As NewLineArgs)
 
-		Public Class NewLineArgs
-			Inherits EventArgs
-			Private privateCommand As Command
-			Public Property Command() As Command
-				Get
-					Return privateCommand
-				End Get
-				Private Set(ByVal value As Command)
-					privateCommand = value
-				End Set
-			End Property
-			Public Sub New(ByVal command As Command)
-				Command = command
-			End Sub
-		End Class
-	End Class
+        Public Class NewLineArgs
+            Inherits EventArgs
+            Private privateCommand As Command
+            Public Property Command() As Command
+                Get
+                    Return privateCommand
+                End Get
+                Private Set(ByVal value As Command)
+                    privateCommand = value
+                End Set
+            End Property
+            Public Sub New(ByVal command As Command)
+                Command = command
+            End Sub
+        End Class
+    End Class
 End Namespace

@@ -21,35 +21,35 @@
 Imports Microsoft.VisualBasic
 Imports System
 Namespace CommandMessenger
-	''' <summary> Stale strategy. Any command older than the time-out is removed from the queue</summary>
-	Public Class StaleGeneralStrategy
-		Inherits GeneralStrategy
-		Private ReadOnly _commandTimeOut As Long
+    ''' <summary> Stale strategy. Any command older than the time-out is removed from the queue</summary>
+    Public Class StaleGeneralStrategy
+        Inherits GeneralStrategy
+        Private ReadOnly _commandTimeOut As Long
 
-		''' <summary> Stale strategy. Any command older than the time-out is removed from the queue</summary>
-		''' <param name="commandTimeOut"> The time-out for any commands on the queue. </param>
-		Public Sub New(ByVal commandTimeOut As Long)
-			_commandTimeOut = commandTimeOut
-		End Sub
+        ''' <summary> Stale strategy. Any command older than the time-out is removed from the queue</summary>
+        ''' <param name="commandTimeOut"> The time-out for any commands on the queue. </param>
+        Public Sub New(ByVal commandTimeOut As Long)
+            _commandTimeOut = commandTimeOut
+        End Sub
 
-		''' <summary> Remove this command (strategy) from command queue. </summary>
-		Public Overrides Sub OnDequeue()
-			' Remove commands that have gone stale
-			'Console.WriteLine("Before StaleStrategy {0}", CommandQueue.Count);
-			Dim currentTime = TimeUtils.Millis
-			' Work from oldest to newest
-			Dim item = 0
-			Do While item < CommandQueue.Count
-				Dim age = currentTime - CommandQueue(item).Command.TimeStamp
-				If age > _commandTimeOut AndAlso CommandQueue.Count > 1 Then
-					CommandQueue.RemoveAt(item)
-				Else
-					' From here on commands are newer, so we can stop
-					Exit Do
-				End If
-				item += 1
-			Loop
-			'Console.WriteLine("After StaleStrategy {0}", CommandQueue.Count);
-		End Sub
-	End Class
+        ''' <summary> Remove this command (strategy) from command queue. </summary>
+        Public Overrides Sub OnDequeue()
+            ' Remove commands that have gone stale
+            'Console.WriteLine("Before StaleStrategy {0}", CommandQueue.Count);
+            Dim currentTime = TimeUtils.Millis
+            ' Work from oldest to newest
+            Dim item = 0
+            Do While item < CommandQueue.Count
+                Dim age = currentTime - CommandQueue(item).Command.TimeStamp
+                If age > _commandTimeOut AndAlso CommandQueue.Count > 1 Then
+                    CommandQueue.RemoveAt(item)
+                Else
+                    ' From here on commands are newer, so we can stop
+                    Exit Do
+                End If
+                item += 1
+            Loop
+            'Console.WriteLine("After StaleStrategy {0}", CommandQueue.Count);
+        End Sub
+    End Class
 End Namespace

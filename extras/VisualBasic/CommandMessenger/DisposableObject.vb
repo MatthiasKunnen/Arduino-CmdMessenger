@@ -22,30 +22,30 @@ Imports Microsoft.VisualBasic
 Imports System
 
 Namespace CommandMessenger
-	Public Class DisposableObject
-		Implements IDisposable
-		Protected DisposeStack As New DisposeStack()
-		Protected IsDisposed As Boolean = False
+    Public Class DisposableObject
+        Implements IDisposable
+        Protected DisposeStack As New DisposeStack()
+        Protected IsDisposed As Boolean = False
 
-		Public Overridable Sub Dispose() Implements IDisposable.Dispose
-			Dispose(True)
-			GC.SuppressFinalize(Me)
-		End Sub
+        Public Overridable Sub Dispose() Implements IDisposable.Dispose
+            Dispose(True)
+            GC.SuppressFinalize(Me)
+        End Sub
 
-		''' <summary>
-		''' Remove all references and remove children
-		''' </summary>
-		''' <param name="disposing">If true, cleanup</param>
-		Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			If (Not IsDisposed) Then
-				If disposing Then
-					DisposeStack.Dispose()
-					DisposeStack = Nothing
-					IsDisposed = True
-				End If
-			End If
-		End Sub
-	End Class
+        ''' <summary>
+        ''' Remove all references and remove children
+        ''' </summary>
+        ''' <param name="disposing">If true, cleanup</param>
+        Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+            If (Not IsDisposed) Then
+                If disposing Then
+                    DisposeStack.Dispose()
+                    DisposeStack = Nothing
+                    IsDisposed = True
+                End If
+            End If
+        End Sub
+    End Class
 
 
 End Namespace

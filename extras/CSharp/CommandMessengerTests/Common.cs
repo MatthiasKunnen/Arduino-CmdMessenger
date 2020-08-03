@@ -34,7 +34,7 @@ namespace CommandMessengerTests
         private const string IdentSt = @"      ";
         private const string IdentWn = @"      ";
         public static CmdMessenger CmdMessenger { get; set; }
-		public static bool Connected { get; private set; }
+        public static bool Connected { get; private set; }
 
         private static bool _loggingCommands = false;
         private static bool _testStarted     = false;

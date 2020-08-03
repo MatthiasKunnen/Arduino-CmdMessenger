@@ -21,58 +21,58 @@
 Imports Microsoft.VisualBasic
 Imports System
 Namespace CommandMessenger
-	''' <summary> Base command strategy.  </summary>
-	Public Class CommandStrategy
-		''' <summary> Base command strategy. </summary>
-		''' <param name="command"> The command to be wrapped in a strategy. </param>
-		Public Sub New(ByVal command As Command)
-			Command = command
-		End Sub
+    ''' <summary> Base command strategy.  </summary>
+    Public Class CommandStrategy
+        ''' <summary> Base command strategy. </summary>
+        ''' <param name="command"> The command to be wrapped in a strategy. </param>
+        Public Sub New(ByVal command As Command)
+            Command = command
+        End Sub
 
-		''' <summary> Gets or sets the command queue. </summary>
-		''' <value> A Queue of commands. </value>
-		Private privateCommandQueue As ListQueue
-		Public Property CommandQueue() As ListQueue(Of CommandStrategy)
-			Get
-				Return privateCommandQueue
-			End Get
-			Set(ByVal value As ListQueue)
-				privateCommandQueue = value
-			End Set
-		End Property
+        ''' <summary> Gets or sets the command queue. </summary>
+        ''' <value> A Queue of commands. </value>
+        Private privateCommandQueue As ListQueue
+        Public Property CommandQueue() As ListQueue(Of CommandStrategy)
+            Get
+                Return privateCommandQueue
+            End Get
+            Set(ByVal value As ListQueue)
+                privateCommandQueue = value
+            End Set
+        End Property
 
-		''' <summary> Gets or sets the run state of the thread. </summary>
-		''' <value> The thread run state. </value>
-		Private privateThreadRunState As CommandQueue.ThreadRunStates
-		Public Property ThreadRunState() As CommandQueue.ThreadRunStates
-			Get
-				Return privateThreadRunState
-			End Get
-			Set(ByVal value As CommandQueue.ThreadRunStates)
-				privateThreadRunState = value
-			End Set
-		End Property
+        ''' <summary> Gets or sets the run state of the thread. </summary>
+        ''' <value> The thread run state. </value>
+        Private privateThreadRunState As CommandQueue.ThreadRunStates
+        Public Property ThreadRunState() As CommandQueue.ThreadRunStates
+            Get
+                Return privateThreadRunState
+            End Get
+            Set(ByVal value As CommandQueue.ThreadRunStates)
+                privateThreadRunState = value
+            End Set
+        End Property
 
-		''' <summary> Gets or sets the command. </summary>
-		''' <value> The command wrapped in the strategy. </value>
-		Private privateCommand As Command
-		Public Property Command() As Command
-			Get
-				Return privateCommand
-			End Get
-			Private Set(ByVal value As Command)
-				privateCommand = value
-			End Set
-		End Property
+        ''' <summary> Gets or sets the command. </summary>
+        ''' <value> The command wrapped in the strategy. </value>
+        Private privateCommand As Command
+        Public Property Command() As Command
+            Get
+                Return privateCommand
+            End Get
+            Private Set(ByVal value As Command)
+                privateCommand = value
+            End Set
+        End Property
 
-		''' <summary> Add command (strategy) to command queue. </summary>
-		Public Overridable Sub Enqueue()
-			CommandQueue.Enqueue(Me)
-		End Sub
+        ''' <summary> Add command (strategy) to command queue. </summary>
+        Public Overridable Sub Enqueue()
+            CommandQueue.Enqueue(Me)
+        End Sub
 
-		''' <summary> Remove this command (strategy) from command queue. </summary>
-		Public Overridable Sub DeQueue()
-			CommandQueue.Remove(Me)
-		End Sub
-	End Class
+        ''' <summary> Remove this command (strategy) from command queue. </summary>
+        Public Overridable Sub DeQueue()
+            CommandQueue.Remove(Me)
+        End Sub
+    End Class
 End Namespace

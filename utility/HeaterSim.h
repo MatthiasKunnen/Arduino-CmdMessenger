@@ -30,27 +30,27 @@
 
 
 class HeaterSim 
-{	 
+{
   private:
-	float _boilerOn;
-	float _boilerTemp;
-	float _delayedBoilerTemp;
-	float _ambientTemp;
-	float _deltaTime;
-	unsigned long _lastTime;
-	unsigned long _deltams;
-	float _halfTimeCooling;
-	float _responseTime;
-	float _heaterSpeed;
-	void CalcTemperature();
-	void CalcDelayedTemperature();
-	
+    float _boilerOn;
+    float _boilerTemp;
+    float _delayedBoilerTemp;
+    float _ambientTemp;
+    float _deltaTime;
+    unsigned long _lastTime;
+    unsigned long _deltams;
+    float _halfTimeCooling;
+    float _responseTime;
+    float _heaterSpeed;
+    void CalcTemperature();
+    void CalcDelayedTemperature();
+
   public:
-	HeaterSim(float ambientTemp = 20);
-	void SetAmbientTemp(float ambientTemp);
-	void SetBoilerTemp(float boilerTemp);
-	float GetTemp();	
-	void SetHeaterState(bool boilerOn);	
+    HeaterSim(float ambientTemp = 20);
+    void SetAmbientTemp(float ambientTemp);
+    void SetBoilerTemp(float boilerTemp);
+    float GetTemp();
+    void SetHeaterState(bool boilerOn);
 };
 
 extern HeaterSim Boiler;

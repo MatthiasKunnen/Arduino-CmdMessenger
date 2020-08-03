@@ -21,26 +21,26 @@
 Imports Microsoft.VisualBasic
 Imports System
 Namespace CommandMessenger
-	''' <summary> Base of general strategy.  </summary>
-	Public Class GeneralStrategy
-		''' <summary> Gets or sets the command queue. </summary>
-		''' <value> A Queue of commands. </value>
-		Private privateCommandQueue As ListQueue
-		Public Property CommandQueue() As ListQueue(Of CommandStrategy)
-			Get
-				Return privateCommandQueue
-			End Get
-			Set(ByVal value As ListQueue)
-				privateCommandQueue = value
-			End Set
-		End Property
+    ''' <summary> Base of general strategy.  </summary>
+    Public Class GeneralStrategy
+        ''' <summary> Gets or sets the command queue. </summary>
+        ''' <value> A Queue of commands. </value>
+        Private privateCommandQueue As ListQueue
+        Public Property CommandQueue() As ListQueue(Of CommandStrategy)
+            Get
+                Return privateCommandQueue
+            End Get
+            Set(ByVal value As ListQueue)
+                privateCommandQueue = value
+            End Set
+        End Property
 
-		''' <summary> GenerAdd command (strategy) to command queue. </summary>
-		Public Overridable Sub OnEnqueue()
-		End Sub
+        ''' <summary> GenerAdd command (strategy) to command queue. </summary>
+        Public Overridable Sub OnEnqueue()
+        End Sub
 
-		''' <summary> Remove this command (strategy) from command queue. </summary>
-		Public Overridable Sub OnDequeue()
-		End Sub
-	End Class
+        ''' <summary> Remove this command (strategy) from command queue. </summary>
+        Public Overridable Sub OnDequeue()
+        End Sub
+    End Class
 End Namespace

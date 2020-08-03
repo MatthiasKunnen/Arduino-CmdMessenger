@@ -20,8 +20,8 @@
 namespace CommandMessenger.Queue
 {
     /// <summary> Collapse command strategy. 
-    /// 		  The purpose of the strategy is to avoid duplicates of a certain command on the queue
-    /// 		  to avoid lagging </summary>
+    ///           The purpose of the strategy is to avoid duplicates of a certain command on the queue
+    ///           to avoid lagging </summary>
     public class CollapseCommandStrategy : CommandStrategy
     {
         /// <summary>  Collapse strategy. </summary>

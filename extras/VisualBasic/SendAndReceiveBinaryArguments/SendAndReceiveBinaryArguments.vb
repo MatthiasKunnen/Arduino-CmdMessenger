@@ -50,7 +50,7 @@ Public Class SendAndReceiveBinaryArguments
                 }
             }
         ' Initialize the command messenger with the Serial Port transport layer
-     	' Set if it is communicating with a 16- or 32-bit Arduino board
+         ' Set if it is communicating with a 16- or 32-bit Arduino board
         _cmdMessenger = New CmdMessenger(_serialTransport, BoardType.Bit16)
 
         ' Attach the callbacks to the Command Messenger
@@ -62,11 +62,11 @@ Public Class SendAndReceiveBinaryArguments
         _receivedItemsCount = 0
         _receivedBytesCount = 0
 
-		' Clear queues 
-		_cmdMessenger.ClearReceiveQueue()
-		_cmdMessenger.ClearSendQueue()
+        ' Clear queues
+        _cmdMessenger.ClearReceiveQueue()
+        _cmdMessenger.ClearSendQueue()
 
-			Thread.Sleep(100)
+            Thread.Sleep(100)
         ' Send command requesting a series of 100 float values send in plain text form
         Dim commandPlainText = New SendCommand(CommandIDs.RequestPlainTextFloatSeries)
         commandPlainText.AddArgument(SeriesLength)
@@ -94,7 +94,7 @@ Public Class SendAndReceiveBinaryArguments
 
         ' Now wait until all values have arrived
         Do While Not _receiveBinaryFloatSeriesFinished
-			Thread.Sleep(100)
+            Thread.Sleep(100)
         Loop
     End Sub
 
@@ -138,13 +138,13 @@ Public Class SendAndReceiveBinaryArguments
     Private Sub OnReceivePlainTextFloatSeries(ByVal arguments As ReceivedCommand)
         _receivedBytesCount += CountBytesInCommand(arguments, True)
 
-			Dim count = arguments.ReadInt16Arg()
-			Dim receivedValue = arguments.ReadFloatArg()
+            Dim count = arguments.ReadInt16Arg()
+            Dim receivedValue = arguments.ReadFloatArg()
 
 
-			If count <> _receivedItemsCount Then
-				Console.WriteLine("Values not matching: received {0} expected {1}", count, _receivedItemsCount)
-			End If
+            If count <> _receivedItemsCount Then
+                Console.WriteLine("Values not matching: received {0} expected {1}", count, _receivedItemsCount)
+            End If
 
         If _receivedItemsCount Mod (SeriesLength / 10) = 0 Then
             Console.WriteLine("Received value: {0}", receivedValue)
@@ -173,8 +173,8 @@ Public Class SendAndReceiveBinaryArguments
 
     ' Callback function To receive the binary float series from the Arduino
     Private Sub OnReceiveBinaryFloatSeries(ByVal arguments As ReceivedCommand)
-			Dim count = arguments.ReadBinUInt16Arg()
-			Dim receivedValue = arguments.ReadBinFloatArg()
+            Dim count = arguments.ReadBinUInt16Arg()
+            Dim receivedValue = arguments.ReadBinFloatArg()
         _receivedBytesCount += CountBytesInCommand(arguments, False)
 
         If _receivedItemsCount Mod (SeriesLength / 10) = 0 Then

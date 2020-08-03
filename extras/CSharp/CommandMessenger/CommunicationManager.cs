@@ -29,7 +29,7 @@ namespace CommandMessenger
     /// </summary>
     public class CommunicationManager : IDisposable
     {
-        private readonly Encoding _stringEncoder = Encoding.GetEncoding("ISO-8859-1");	// The string encoder
+        private readonly Encoding _stringEncoder = Encoding.GetEncoding("ISO-8859-1");    // The string encoder
         private readonly object _sendCommandDataLock = new object();        // The process serial data lock
         private readonly object _parseLinesLock = new object();
         private readonly ReceiveCommandQueue _receiveCommandQueue;

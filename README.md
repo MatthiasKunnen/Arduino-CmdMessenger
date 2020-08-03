@@ -68,36 +68,36 @@ Get to know the library, by trying the examples,from simple to complex:
   The 1st example will make the PC toggle the integrated led on the Arduino board. 
 
   * On the Arduino side, it demonstrates how to:
-	  - Define commands
-	  - Set up a serial connection
-	  - Receive a command with a parameter from the PC
+      - Define commands
+      - Set up a serial connection
+      - Receive a command with a parameter from the PC
   * On the PC side, it demonstrates how to:
-	  - Define commands
-	  - Set up a serial connection
-	  - Send a command with a parameter to the Arduino
+      - Define commands
+      - Set up a serial connection
+      - Send a command with a parameter to the Arduino
 
 ### SendandReceive 
   This example expands the previous Receive example. The Arduino will now send back a status. 
   On the Arduino side, 
   * it demonstrates how to:
-	  - Handle received commands that do not have a function attache
-	  - Send a command with a parameter to the PC
+      - Handle received commands that do not have a function attache
+      - Send a command with a parameter to the PC
   * On the PC side, it demonstrates how to:
-	  - Handle received commands that do not have a function attached
-	  - Receive a command with a parameter from the Arduino
+      - Handle received commands that do not have a function attached
+      - Receive a command with a parameter from the Arduino
 
 ### SendandReceiveArguments
   This example expands the previous SendandReceive example. The Arduino will now receive multiple 
   and sent multiple float values. 
   * On the arduino side, it demonstrates how to:
-	  - Return multiple types status 
-	  - Receive multiple parameters,
-	  - Send multiple parameters
+      - Return multiple types status 
+      - Receive multiple parameters,
+      - Send multiple parameters
       - Call a function periodically
   * On the PC side, it demonstrates how to:
-	  - Send multiple parameters, and wait for response 
-	  - Receive multiple parameters
-	  - Add logging events on data that has been sent or received
+      - Send multiple parameters, and wait for response 
+      - Receive multiple parameters
+      - Add logging events on data that has been sent or received
   
 ### SendandReceiveBinaryArguments
 
@@ -105,13 +105,13 @@ Get to know the library, by trying the examples,from simple to complex:
   Binary values, demonstrating that this is more efficient way of communication. 
 
   * On the Arduino side, it demonstrates how to:
-	  - Send binary parameters
-	  - Receive binary parameters
+      - Send binary parameters
+      - Receive binary parameters
   * On the PC side, it demonstrates how to:
-	  - Receive multiple binary parameters,
+      - Receive multiple binary parameters,
       - Send multiple binary parameters
       - How callback events can be handled while the main program waits
-	  - How to calculate milliseconds, similar to Arduino function Millis()
+      - How to calculate milliseconds, similar to Arduino function Millis()
 
 ### DataLogging
 

@@ -21,8 +21,8 @@
 Imports Microsoft.VisualBasic
 Imports System
 Namespace CommandMessenger.Serialport
-	Public Interface ISerialConnectionStorer
-		Sub StoreSettings(ByVal serialConnectionManagerSettings As SerialConnectionManagerSettings)
-		Function RetrieveSettings() As SerialConnectionManagerSettings
-	End Interface
+    Public Interface ISerialConnectionStorer
+        Sub StoreSettings(ByVal serialConnectionManagerSettings As SerialConnectionManagerSettings)
+        Function RetrieveSettings() As SerialConnectionManagerSettings
+    End Interface
 End Namespace

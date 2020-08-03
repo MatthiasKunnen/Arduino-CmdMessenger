@@ -30,7 +30,7 @@ namespace CommandMessenger
 
         private Thread _workerTask;
 
-		public string Name { get; private set; }
+        public string Name { get; private set; }
 
         public WorkerState State { get { return _state; } }
 

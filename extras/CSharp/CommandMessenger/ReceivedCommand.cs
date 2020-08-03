@@ -356,20 +356,20 @@ namespace CommandMessenger
             return false;
         }
 
-		/// <summary> Reads the current binary argument as a byte value. </summary>
-		/// <returns> The boolean value. </returns>
-		public byte ReadBinByteArg()
-		{
-			if (Next())
-			{
-				var current = BinaryConverter.ToByte(CmdArgs[_parameter]);
-				if (current != null)
-				{
-					_dumped = true;
-					return (byte)current;
-				}
-			}
-			return 0;
-		}
-	}
+        /// <summary> Reads the current binary argument as a byte value. </summary>
+        /// <returns> The boolean value. </returns>
+        public byte ReadBinByteArg()
+        {
+            if (Next())
+            {
+                var current = BinaryConverter.ToByte(CmdArgs[_parameter]);
+                if (current != null)
+                {
+                    _dumped = true;
+                    return (byte)current;
+                }
+            }
+            return 0;
+        }
+    }
 }

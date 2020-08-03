@@ -21,18 +21,18 @@
 Imports Microsoft.VisualBasic
 Imports System
 Namespace CommandMessenger.TransportLayer
-	''' <summary> Interface for transport layer.  </summary>
-	Public Interface ITransport
-	Inherits IDisposable
-		Function BytesInBuffer() As Integer
-		Function Read() As Byte()
-		Sub Poll()
-		Function Connect() As Boolean
-		Function Disconnect() As Boolean
-		Function IsConnected() As Boolean
-		Sub StartListening()
-		Sub StopListening()
-		Sub Write(ByVal buffer() As Byte)
-		Event NewDataReceived As EventHandler
-	End Interface
+    ''' <summary> Interface for transport layer.  </summary>
+    Public Interface ITransport
+    Inherits IDisposable
+        Function BytesInBuffer() As Integer
+        Function Read() As Byte()
+        Sub Poll()
+        Function Connect() As Boolean
+        Function Disconnect() As Boolean
+        Function IsConnected() As Boolean
+        Sub StartListening()
+        Sub StopListening()
+        Sub Write(ByVal buffer() As Byte)
+        Event NewDataReceived As EventHandler
+    End Interface
 End Namespace

@@ -22,18 +22,18 @@ Imports Microsoft.VisualBasic
 Imports System.Text
 
 Namespace CommandMessenger
-	''' <summary> String utilities. </summary>
-	Public Class StringUtils
-		''' <summary> Convert string from one codepage to another. </summary>
-		''' <param name="input">        The string. </param>
-		''' <param name="fromEncoding"> input encoding codepage. </param>
-		''' <param name="toEncoding">   output encoding codepage. </param>
-		''' <returns> the encoded string. </returns>
-		Public Shared Function ConvertEncoding(ByVal input As String, ByVal fromEncoding As Encoding, ByVal toEncoding As Encoding) As String
-			Dim byteArray = fromEncoding.GetBytes(input)
-			Dim asciiArray = Encoding.Convert(fromEncoding, toEncoding, byteArray)
-			Dim finalString = toEncoding.GetString(asciiArray)
-			Return finalString
-		End Function
-	End Class
+    ''' <summary> String utilities. </summary>
+    Public Class StringUtils
+        ''' <summary> Convert string from one codepage to another. </summary>
+        ''' <param name="input">        The string. </param>
+        ''' <param name="fromEncoding"> input encoding codepage. </param>
+        ''' <param name="toEncoding">   output encoding codepage. </param>
+        ''' <returns> the encoded string. </returns>
+        Public Shared Function ConvertEncoding(ByVal input As String, ByVal fromEncoding As Encoding, ByVal toEncoding As Encoding) As String
+            Dim byteArray = fromEncoding.GetBytes(input)
+            Dim asciiArray = Encoding.Convert(fromEncoding, toEncoding, byteArray)
+            Dim finalString = toEncoding.GetString(asciiArray)
+            Return finalString
+        End Function
+    End Class
 End Namespace

@@ -21,28 +21,28 @@
 Imports Microsoft.VisualBasic
 Imports System
 Namespace CommandMessenger
-	''' <summary> Collapse command strategy. 
-	''' 		  The purpose of the strategy is to avoid duplicates of a certain command on the queue
-	''' 		  to avoid lagging </summary>
-	Public Class CollapseCommandStrategy
-		Inherits CommandStrategy
-		''' <summary>  Collapse strategy. </summary>
-		''' <param name="command"> The command that will be collapsed on the queue. </param>
-		Public Sub New(ByVal command As Command)
-			MyBase.New(command)
-		End Sub
+    ''' <summary> Collapse command strategy.
+    '''           The purpose of the strategy is to avoid duplicates of a certain command on the queue
+    '''           to avoid lagging </summary>
+    Public Class CollapseCommandStrategy
+        Inherits CommandStrategy
+        ''' <summary>  Collapse strategy. </summary>
+        ''' <param name="command"> The command that will be collapsed on the queue. </param>
+        Public Sub New(ByVal command As Command)
+            MyBase.New(command)
+        End Sub
 
-		''' <summary> Add command (strategy) to command queue. </summary>
-		Public Overrides Sub Enqueue()
-			' find if there already is a command with the same CmdId
-			Dim index = CommandQueue.FindIndex(Function(strategy) strategy.Command.CmdId = Command.CmdId)
-			If index < 0 Then
-				' if not, add to the back of the queue
-				CommandQueue.Enqueue(Me)
-			Else
-				' if on the queue, replace with new command
-				CommandQueue(index) = Me
-			End If
-		End Sub
-	End Class
+        ''' <summary> Add command (strategy) to command queue. </summary>
+        Public Overrides Sub Enqueue()
+            ' find if there already is a command with the same CmdId
+            Dim index = CommandQueue.FindIndex(Function(strategy) strategy.Command.CmdId = Command.CmdId)
+            If index < 0 Then
+                ' if not, add to the back of the queue
+                CommandQueue.Enqueue(Me)
+            Else
+                ' if on the queue, replace with new command
+                CommandQueue(index) = Me
+            End If
+        End Sub
+    End Class
 End Namespace

@@ -141,16 +141,16 @@
             <example>
             public class MyItem : GenericItem
             {
-            	[NotifyParentProperty(true)]
-            	public bool IsVisible
-            	{
-            		get 
-            		{ 
-            			object x = ViewState["IsVisible"]; 
-            			return (null == x) ? true : (bool)x;
-            		}
-            		set { ViewState["IsLegendLabelVisible"] = value; }
-            	}
+                [NotifyParentProperty(true)]
+                public bool IsVisible
+                {
+                    get
+                    {
+                        object x = ViewState["IsVisible"];
+                        return (null == x) ? true : (bool)x;
+                    }
+                    set { ViewState["IsLegendLabelVisible"] = value; }
+                }
             }
             </example>
             <author>Darren Martz</author>
@@ -247,24 +247,24 @@
             <example>
             public class MyCollection : GenericCollection
             {
-            	public MyCollection() : base()
-            	{
-            		Schema = new GenericCollectionItemSchema[1];
-            		Schema[0].code = 'b';
-            		Schema[1].type = typeof(MyItem);
-            	}
-            	public void Add(MyItem item)
-            	{
-            		if ( null != item ) ListAdd( item );
-            		else throw new ArgumentException("parameter cannot be null","item");
-            	}	
-            	
-            	[NotifyParentProperty(true)]
-            	public ZedGraphWebCurveItem this [int index]
-            	{
-            		get { return (MyItem)ListGet(index); }
-            		set { ListInsert(index,value); }
-            	}
+                public MyCollection() : base()
+                {
+                    Schema = new GenericCollectionItemSchema[1];
+                    Schema[0].code = 'b';
+                    Schema[1].type = typeof(MyItem);
+                }
+                public void Add(MyItem item)
+                {
+                    if ( null != item ) ListAdd( item );
+                    else throw new ArgumentException("parameter cannot be null","item");
+                }
+
+                [NotifyParentProperty(true)]
+                public ZedGraphWebCurveItem this [int index]
+                {
+                    get { return (MyItem)ListGet(index); }
+                    set { ListInsert(index,value); }
+                }
             }
             </example>
             <author>Darren Martz</author>
@@ -364,7 +364,7 @@
             </summary>
             <param name="item">item to locate in list</param>
             <returns>index of item</returns>
-            <exception cref="T:System.ArgumentNullException"></exception>		
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:ZedGraph.Web.GenericCollection.GetEnumerator">
             <summary>
@@ -476,7 +476,7 @@
         </member>
         <member name="P:ZedGraph.Web.GenericCollection.SyncRoot">
             <summary>
-            <see cref="P:System.Collections.ICollection.SyncRoot"/>		
+            <see cref="P:System.Collections.ICollection.SyncRoot"/>
             </summary>
         </member>
         <member name="P:ZedGraph.Web.GenericCollection.System#Collections#IList#Item(System.Int32)">
@@ -485,7 +485,7 @@
             return the object type and expose equivalent public members
             that take or return an item instance instead. Also
             implement privately those members of IList that are not meaninful
-            to expose in the public object model of this Collection.		
+            to expose in the public object model of this Collection.
             </summary>
         </member>
         <member name="P:ZedGraph.Web.GenericCollection.System#Collections#IList#IsFixedSize">
@@ -1475,13 +1475,13 @@
             <summary>
             Web control state management class for a <see cref="T:ZedGraph.XAxis"/> object
             </summary>
-            <author>Darren Martz</author>	
+            <author>Darren Martz</author>
         </member>
         <member name="T:ZedGraph.Web.ZedGraphWebAxis">
             <summary>
             Web control state management class for a <see cref="T:ZedGraph.Axis"/> object
             </summary>
-            <author>Darren Martz</author>	
+            <author>Darren Martz</author>
         </member>
         <member name="M:ZedGraph.Web.ZedGraphWebAxis.ToString">
             <summary>
@@ -1679,7 +1679,7 @@
             <summary>
             Web control state management class for a <see cref="T:ZedGraph.YAxis"/> object
             </summary>
-            <author>Darren Martz</author>	
+            <author>Darren Martz</author>
         </member>
         <member name="M:ZedGraph.Web.ZedGraphWebYAxis.ToString">
             <summary>
@@ -1698,7 +1698,7 @@
             <summary>
             Web control state management class for a <see cref="T:ZedGraph.Y2Axis"/> object
             </summary>
-            <author>Darren Martz</author>	
+            <author>Darren Martz</author>
         </member>
         <member name="M:ZedGraph.Web.ZedGraphWebY2Axis.ToString">
             <summary>
@@ -2285,14 +2285,14 @@
             <author>Darren Martz</author>
             <remarks>
             A TextObj uses only:
-            	FontSpec
-            	Location
-            		.CoordinateFrame (<see cref="T:ZedGraph.CoordType"/>)
-            		.X (between 0 and 1 for fraction CoordTypes) 0=left, 1=right
-            		.Y (between 0 and 1 for fraction CoordTypes) 0=top, 1=bottom
-            		.AlignH
-            		.AlignV
-            		.layoutArea
+                FontSpec
+                Location
+                    .CoordinateFrame (<see cref="T:ZedGraph.CoordType"/>)
+                    .X (between 0 and 1 for fraction CoordTypes) 0=left, 1=right
+                    .Y (between 0 and 1 for fraction CoordTypes) 0=top, 1=bottom
+                    .AlignH
+                    .AlignV
+                    .layoutArea
             </remarks>
         </member>
         <member name="M:ZedGraph.Web.ZedGraphWebTextObj.ToString">

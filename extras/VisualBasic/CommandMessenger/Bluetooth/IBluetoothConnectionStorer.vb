@@ -21,8 +21,8 @@
 Imports Microsoft.VisualBasic
 Imports System
 Namespace CommandMessenger.Bluetooth
-	Public Interface IBluetoothConnectionStorer
-		Sub StoreSettings(ByVal bluetoothConnectionManagerSettings As BluetoothConnectionManagerSettings)
-		Function RetrieveSettings() As BluetoothConnectionManagerSettings
-	End Interface
+    Public Interface IBluetoothConnectionStorer
+        Sub StoreSettings(ByVal bluetoothConnectionManagerSettings As BluetoothConnectionManagerSettings)
+        Function RetrieveSettings() As BluetoothConnectionManagerSettings
+    End Interface
 End Namespace

@@ -74,7 +74,7 @@ Partial Public Class ChartForm
         Me.GoalTemperatureTrackBar.Tag = ""
         Me.GoalTemperatureTrackBar.TickFrequency = 10
         Me.GoalTemperatureTrackBar.Value = 200
-        '			Me.GoalTemperatureTrackBar.Scroll += New System.EventHandler(Me.GoalTemperatureTrackBarScroll);
+        '            Me.GoalTemperatureTrackBar.Scroll += New System.EventHandler(Me.GoalTemperatureTrackBarScroll);
         ' 
         ' buttonStopAcquisition
         ' 
@@ -84,7 +84,7 @@ Partial Public Class ChartForm
         Me.buttonStopAcquisition.TabIndex = 7
         Me.buttonStopAcquisition.Text = "Stop acquisition"
         Me.buttonStopAcquisition.UseVisualStyleBackColor = True
-        '			Me.buttonStopAcquisition.Click += New System.EventHandler(Me.ButtonStopAcquisitionClick);
+        '            Me.buttonStopAcquisition.Click += New System.EventHandler(Me.ButtonStopAcquisitionClick);
         ' 
         ' buttonStartAcquisition
         ' 
@@ -94,7 +94,7 @@ Partial Public Class ChartForm
         Me.buttonStartAcquisition.TabIndex = 8
         Me.buttonStartAcquisition.Text = "Start acquisition"
         Me.buttonStartAcquisition.UseVisualStyleBackColor = True
-        '			Me.buttonStartAcquisition.Click += New System.EventHandler(Me.ButtonStartAcquisitionClick);
+        '            Me.buttonStartAcquisition.Click += New System.EventHandler(Me.ButtonStartAcquisitionClick);
         ' 
         ' statusStrip1
         ' 
@@ -129,7 +129,7 @@ Partial Public Class ChartForm
         Me.loggingView1.Name = "loggingView1"
         Me.loggingView1.Size = New System.Drawing.Size(905, 82)
         Me.loggingView1.TabIndex = 11
-        '			Me.loggingView1.SelectedIndexChanged += New System.EventHandler(Me.loggingView1_SelectedIndexChanged);
+        '            Me.loggingView1.SelectedIndexChanged += New System.EventHandler(Me.loggingView1_SelectedIndexChanged);
         ' 
         ' ChartForm
         ' 
@@ -150,7 +150,7 @@ Partial Public Class ChartForm
         Me.Name = "ChartForm"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.Text = "Temperature Controller"
-        '			Me.Shown += New System.EventHandler(Me.ChartFormShown);
+        '            Me.Shown += New System.EventHandler(Me.ChartFormShown);
         CType(Me.GoalTemperatureTrackBar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.statusStrip1.ResumeLayout(False)
         Me.statusStrip1.PerformLayout()

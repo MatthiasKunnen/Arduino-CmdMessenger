@@ -6,7 +6,7 @@ namespace CommandMessenger
 {
     static class Logger
     {
-        private static readonly Encoding StringEncoder = Encoding.GetEncoding("ISO-8859-1");	// The string encoder
+        private static readonly Encoding StringEncoder = Encoding.GetEncoding("ISO-8859-1");    // The string encoder
         private static FileStream _fileStream;
 
         static Logger()

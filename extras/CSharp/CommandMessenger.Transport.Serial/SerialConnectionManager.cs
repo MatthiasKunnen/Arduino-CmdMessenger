@@ -133,7 +133,7 @@ namespace CommandMessenger.Transport.Serial
 
                     return status;
                 }
-			
+
                 return DeviceStatus.NotAvailable;
             }
         }
@@ -292,20 +292,20 @@ namespace CommandMessenger.Transport.Serial
                     : new[] { _serialTransport.CurrentSerialSettings.BaudRate };
 
                 //  Now loop through baud rate collection
-				if (baudRateCollection.Any())
-				{
-                	Log(1, "Trying serial port " + portName + " using " + baudRateCollection.Length + " baud rate(s).");
+                if (baudRateCollection.Any())
+                {
+                    Log(1, "Trying serial port " + portName + " using " + baudRateCollection.Length + " baud rate(s).");
 
-	                foreach (var baudRate in baudRateCollection)
-	                {
+                    foreach (var baudRate in baudRateCollection)
+                    {
                         // Stop scanning if state was changed
                         if (ConnectionManagerMode != Mode.Scan) return false;
 
                         DeviceStatus status = TryConnection(portName, baudRate);
                         if (status == DeviceStatus.Available) return true;
                         if (status == DeviceStatus.IdentityMismatch) break; // break the loop and continue to next port.
-	                }
-				}
+                    }
+                }
 
                 // If port list has changed, interrupt scan and test new ports first
                 if (NewPortScan()) return true;
