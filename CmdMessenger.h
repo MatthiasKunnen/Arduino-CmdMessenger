@@ -26,8 +26,10 @@
 #define CmdMessenger_h
 
 #include <inttypes.h>
+
 #if ARDUINO >= 100
-#include <Arduino.h> 
+#include <Arduino.h>
+
 #else
 #include <WProgram.h> 
 #endif
@@ -37,7 +39,7 @@
 extern "C"
 {
     // callback functions always follow the signature: void cmd(void);
-    typedef void(*messengerCallbackFunction) (void);
+    typedef void(*messengerCallbackFunction)(void);
 }
 
 #define MAXCALLBACKS        50   // The maximum number of commands   (default: 50)
@@ -46,8 +48,7 @@ extern "C"
 #define DEFAULT_TIMEOUT     5000 // Time out on unanswered messages. (default: 5s)
 
 // Message States
-enum
-{
+enum {
     kProccesingMessage,            // Message is being received, not reached command separator
     kEndOfMessage,                 // Message is fully received, reached command separator
     kProcessingArguments,             // Message is received, arguments are being read parsed
@@ -56,12 +57,11 @@ enum
 #define white_space(c) ((c) == ' ' || (c) == '\t')
 #define valid_digit(c) ((c) >= '0' && (c) <= '9')
 
-class CmdMessenger
-{
+class CmdMessenger {
 private:
     // **** Private variables ***
 
-    bool    startCommand;            // Indicates if sending of a command is underway
+    bool startCommand;            // Indicates if sending of a command is underway
     uint8_t lastCommandId;            // ID of last received command
     uint8_t bufferIndex;              // Index where to write data in buffer
     uint8_t bufferLength;             // Is set to MESSENGERBUFFERSIZE
@@ -90,14 +90,24 @@ private:
 
     // **** Initialize ****
 
-    void init(Stream & comms, const char fld_separator, const char cmd_separator, const char esc_character);
+    void init(
+            Stream &comms,
+            const char fld_separator,
+            const char cmd_separator,
+            const char esc_character);
+
     void reset();
 
     // **** Command processing ****
 
     inline uint8_t processLine(char serialChar) __attribute__((always_inline));
+
     inline void handleMessage() __attribute__((always_inline));
-    inline bool blockedTillReply(unsigned int timeout = DEFAULT_TIMEOUT, byte ackCmdId = 1) __attribute__((always_inline));
+
+    inline bool blockedTillReply(
+            unsigned int timeout = DEFAULT_TIMEOUT,
+            byte ackCmdId = 1) __attribute__((always_inline));
+
     inline bool checkForAck(byte AckCommand) __attribute__((always_inline));
 
     // **** Command sending ****
@@ -105,12 +115,10 @@ private:
     /**
      * Print variable of type T binary in binary format
      */
-    template < class T >
-    void writeBin(const T & value)
-    {
-        const byte *bytePointer = (const byte *)(const void *)&value;
-        for (unsigned int i = 0; i < sizeof(value); i++)
-        {
+    template<class T>
+    void writeBin(const T &value) {
+        const byte *bytePointer = (const byte *) (const void *) &value;
+        for (unsigned int i = 0; i < sizeof(value); i++) {
             printEsc(*bytePointer);
             bytePointer++;
         }
@@ -123,27 +131,23 @@ private:
     /**
      * Read a variable of any type in binary format
      */
-    template < class T >
-    T readBin(char *str)
-    {
+    template<class T>
+    T readBin(char *str) {
         T value;
         unescape(str);
-        byte *bytePointer = (byte *)(const void *)&value;
-        for (unsigned int i = 0; i < sizeof(value); i++)
-        {
+        byte *bytePointer = (byte *) (const void *) &value;
+        for (unsigned int i = 0; i < sizeof(value); i++) {
             *bytePointer = str[i];
             bytePointer++;
         }
         return value;
     }
 
-    template < class T >
-    T empty()
-    {
+    template<class T>
+    T empty() {
         T value;
-        byte *bytePointer = (byte *)(const void *)&value;
-        for (unsigned int i = 0; i < sizeof(value); i++)
-        {
+        byte *bytePointer = (byte *) (const void *) &value;
+        for (unsigned int i = 0; i < sizeof(value); i++) {
             *bytePointer = '\0';
             bytePointer++;
         }
@@ -153,9 +157,11 @@ private:
     // **** Escaping tools ****
 
     char *split_r(char *str, const char delim, char **nextp);
+
     bool isEscaped(char *currChar, const char escapeChar, char *lastChar);
 
     void printEsc(char *str);
+
     void printEsc(char str);
 
 public:
@@ -164,20 +170,28 @@ public:
 
     // **** Initialization ****
 
-    CmdMessenger(Stream & comms, const char fld_separator = ',',
-        const char cmd_separator = ';',
-        const char esc_character = '/');
+    CmdMessenger(
+            Stream &comms,
+            const char fld_separator = ',',
+            const char cmd_separator = ';',
+            const char esc_character = '/');
 
     void printLfCr(bool addNewLine = true);
+
     void attach(messengerCallbackFunction newFunction);
+
     void attach(byte msgId, messengerCallbackFunction newFunction);
 
     // **** Command processing ****
 
     void feedinSerialData();
+
     bool next();
+
     bool available();
+
     bool isArgOk();
+
     uint8_t commandID();
 
     // ****  Command sending ****
@@ -186,10 +200,13 @@ public:
      * Send a command with a single argument of any type
      * Note that the argument is sent as string
      */
-    template < class T >
-    bool sendCmd(byte cmdId, T arg, bool reqAc = false, byte ackCmdId = 1,
-        unsigned int timeout = DEFAULT_TIMEOUT)
-    {
+    template<class T>
+    bool sendCmd(
+            byte cmdId,
+            T arg,
+            bool reqAc = false,
+            byte ackCmdId = 1,
+            unsigned int timeout = DEFAULT_TIMEOUT) {
         if (!startCommand) {
             sendCmdStart(cmdId);
             sendCmdArg(arg);
@@ -202,10 +219,13 @@ public:
      * Send a command with a single argument of any type
      * Note that the argument is sent in binary format
      */
-    template < class T >
-    bool sendBinCmd(byte cmdId, T arg, bool reqAc = false, byte ackCmdId = 1,
-        unsigned int timeout = DEFAULT_TIMEOUT)
-    {
+    template<class T>
+    bool sendBinCmd(
+            byte cmdId,
+            T arg,
+            bool reqAc = false,
+            byte ackCmdId = 1,
+            unsigned int timeout = DEFAULT_TIMEOUT) {
         if (!startCommand) {
             sendCmdStart(cmdId);
             sendCmdBinArg(arg);
@@ -215,20 +235,23 @@ public:
     }
 
     bool sendCmd(byte cmdId);
+
     bool sendCmd(byte cmdId, bool reqAc, byte ackCmdId);
     // **** Command sending with multiple arguments ****
 
     void sendCmdStart(byte cmdId);
+
     void sendCmdEscArg(char *arg);
+
     void sendCmdfArg(char *fmt, ...);
+
     bool sendCmdEnd(bool reqAc = false, byte ackCmdId = 1, unsigned int timeout = DEFAULT_TIMEOUT);
 
     /**
      * Send a single argument as string
      *  Note that this will only succeed if a sendCmdStart has been issued first
      */
-    template < class T > void sendCmdArg(T arg)
-    {
+    template<class T> void sendCmdArg(T arg) {
         if (startCommand) {
             comms->print(field_separator);
             comms->print(arg);
@@ -239,8 +262,7 @@ public:
      * Send a single argument as string with custom accuracy
      *  Note that this will only succeed if a sendCmdStart has been issued first
      */
-    template < class T > void sendCmdArg(T arg, unsigned int n)
-    {
+    template<class T> void sendCmdArg(T arg, unsigned int n) {
         if (startCommand) {
             comms->print(field_separator);
             comms->print(arg, n);
@@ -253,13 +275,11 @@ public:
      */
     void sendCmdSciArg(double arg, unsigned int n = 6);
 
-
     /**
      * Send a single argument in binary format
      *  Note that this will only succeed if a sendCmdStart has been issued first
      */
-    template < class T > void sendCmdBinArg(T arg)
-    {
+    template<class T> void sendCmdBinArg(T arg) {
         if (startCommand) {
             comms->print(field_separator);
             writeBin(arg);
@@ -268,34 +288,40 @@ public:
 
     // **** Command receiving ****
     bool readBoolArg();
+
     int16_t readInt16Arg();
+
     int32_t readInt32Arg();
+
     char readCharArg();
+
     float readFloatArg();
+
     double readDoubleArg();
+
     char *readStringArg();
+
     void copyStringArg(char *string, uint8_t size);
+
     uint8_t compareStringArg(char *string);
 
     /**
      * Read an argument of any type in binary format
      */
-    template < class T > T readBinArg()
-    {
+    template<class T> T readBinArg() {
         if (next()) {
             dumped = true;
-            return readBin < T >(current);
-        }
-        else {
-            return empty < T >();
+            return readBin<T>(current);
+        } else {
+            return empty<T>();
         }
     }
 
     // **** Escaping tools ****
 
     void unescape(char *fromChar);
+
     void printSci(double f, unsigned int digits);
-
-
 };
+
 #endif
