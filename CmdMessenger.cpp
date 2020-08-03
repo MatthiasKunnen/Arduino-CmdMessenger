@@ -178,10 +178,10 @@ void CmdMessenger::handleMessage() {
     // if command attached, we will call it
     if (lastCommandId >= 0 && lastCommandId < MAXCALLBACKS && ArgOk &&
         callbackList[lastCommandId] != NULL) {
-        (*callbackList[lastCommandId])();
+        (*callbackList[lastCommandId])(*this);
     } else if (default_callback != NULL) {
         // If command not attached, call default callback (if attached)
-        (*default_callback)();
+        (*default_callback)(*this);
     }
 }
 
